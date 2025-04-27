@@ -586,9 +586,9 @@ class Entry:
         if self.options.multiline_tags:
             tags_separator = '\n    ; '
         else:
-            tags_separator = ''
+            tags_separator = ' '
         if tags:
-            tags = '; ' + tags_separator.join(tags).replace('::', ':')
+            tags = '; ' + tags_separator.join(tags).replace(': :', ':')
         else:
             tags = ''
 
@@ -791,11 +791,10 @@ def prompt_for_tags(prompt, values, default):
     value = prompt_for_value(prompt, values, ", ".join(tags))
     while value:
         if value[0] == '-':
-            value = tagify(value[1:])
+            value = value[1:]
             if value in tags:
                 tags.remove(value)
         else:
-            value = tagify(value)
             if not value in tags:
                 tags.append(value)
         value = prompt_for_value(prompt, values, ", ".join(tags))
