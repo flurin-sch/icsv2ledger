@@ -1,8 +1,9 @@
 icsv2ledger
 ===========
 
->[!NOTE] Changes in this fork
-> This fork changes the functionality of the tag prompt. Details can be found it the `--tags` section under [Options](#options).
+> [!NOTE]
+> This fork changes the functionality of the tag prompt. 
+> Details can be found it the `--tags` section under [Options](#options).
 
 This is a command-line utility to convert CSV files of transactions,
 such as you might download from an online banking service, into the
