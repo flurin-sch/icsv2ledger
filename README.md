@@ -1,6 +1,9 @@
 icsv2ledger
 ===========
 
+>[!NOTE] Changes in this fork
+> This fork changes the functionality of the tag prompt. Details can be found it the `--tags` section under [Options](#options).
+
 This is a command-line utility to convert CSV files of transactions,
 such as you might download from an online banking service, into the
 format used by John Wiegley's excellent [Ledger](http://ledger-cli.org)
@@ -320,15 +323,16 @@ Default is `1`.
 
 **`--tags, -t`**
 
-will interactively prompt for transaction tags. Default is `False`.
+will interactively prompt for transaction tags/notes. Default is `False`.
 
 The normal behavior is for one description to prompt for payee and
 account, and store this in mapping file. By setting this option, the
 description can also be mapped to additional tags.
 
-At the prompt: fill a tagname and press Enter key as many times as you need
-tags. Remove an existing tag by preceding it with minus, like
-`-tagname`. When finished, press Enter key on an empty line.
+At the promt you can add a tag by typing `:tag:` and pressing enter.
+Multiple tags in succession (e.g. `:tag1: :tag2:`) will be rendered to share a colon like so: `:tag1:tag2:`.
+If you want to enter a note, simply omit the `:` and type `this is a note`. 
+You can either add another entry or stop adding tags/notes by leaving the prompt empty and pressing enter.
 
 This `--tags` option only _prompt_ for tags. You have to add `; {tags}`
 in your template to make tags appear in generated Ledger transactions.
