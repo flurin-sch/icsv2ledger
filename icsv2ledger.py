@@ -742,7 +742,7 @@ def read_mapping_file(map_file) -> [MappingInfo]:
 
                 if pattern.startswith('/') and pattern.endswith('/'):
                     try:
-                        pattern = re.compile(pattern[1:-1])
+                        pattern = re.compile(pattern[1:-1], re.IGNORECASE)
                     except re.error as e:
                         print("Invalid regex '{0}' in '{1}': {2}"
                               .format(pattern, map_file, e),
